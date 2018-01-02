@@ -439,9 +439,9 @@ class ProposalMultivariateNormal(nn.Module):
         value = Variable(torch.cat([s.value.unsqueeze(0) for s in samples], dim=0), requires_grad=False)
 
         logpdf = -0.5 * (
-            torch.sum(((value - mean)**2) / variances, dim=1).squeeze(1) +
+            torch.sum(((value - mean)**2) / variances, dim=1) +
             num_dimensions * np.log(2 * np.pi) +
-            torch.sum(torch.log(variances), dim=1).squeeze(1)
+            torch.sum(torch.log(variances), dim=1)
         )
 
         return -torch.sum(logpdf)

@@ -70,9 +70,9 @@ table Laplace {
 
 table MultivariateNormal {
     prior_mean:NDArray;
-    prior_std:NDArray;
+    prior_cov:NDArray;
     proposal_mean:NDArray;
-    proposal_std:NDArray; // TODO: check why this is proposal_vars. We should prefer proposal_stds.
+    proposal_vars:NDArray; // TODO: check why this is proposal_vars. We should prefer proposal_stds.
 }
 
 table Normal {
